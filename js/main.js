@@ -14,20 +14,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
 
+    function closeNav() {
+        toggle.classList.remove('open');
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    function openNav() {
+        toggle.classList.add('open');
+        navLinks.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        // Focus first link for keyboard users
+        const firstLink = navLinks.querySelector('a');
+        if (firstLink) firstLink.focus();
+    }
+
     if (toggle && navLinks) {
+        toggle.setAttribute('aria-expanded', 'false');
+
         toggle.addEventListener('click', () => {
-            toggle.classList.toggle('open');
-            navLinks.classList.toggle('open');
-            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            if (navLinks.classList.contains('open')) {
+                closeNav();
+            } else {
+                openNav();
+            }
         });
 
         // Close on link click
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                toggle.classList.remove('open');
-                navLinks.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeNav);
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeNav();
+                toggle.focus();
+            }
+
+            // Trap focus within open nav
+            if (e.key === 'Tab' && navLinks.classList.contains('open')) {
+                const focusable = navLinks.querySelectorAll('a');
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     }
 
