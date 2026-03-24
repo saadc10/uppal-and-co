@@ -179,7 +179,7 @@ p {
 .nav-cta {
     background: var(--green-800);
     color: var(--cream) !important;
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.4rem !important;
     border-radius: var(--radius);
     font-weight: 500;
     font-size: 0.85rem;
@@ -541,6 +541,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .trust-feature {
@@ -814,6 +815,7 @@ p {
 .contact-item a {
     font-size: 0.92rem;
     color: var(--text-mid);
+    margin-bottom: 0;
 }
 
 .contact-form {
