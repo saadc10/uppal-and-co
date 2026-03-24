@@ -71,10 +71,10 @@ h1, h2, h3, h4 {
     color: var(--green-900);
 }
 
-h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); }
-h4 { font-size: 1.15rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.25rem; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 0.75rem; }
+h4 { font-size: 1.15rem; margin-bottom: 0.4rem; }
 
 p {
     color: var(--text-mid);
@@ -263,10 +263,6 @@ p {
     width: 16px;
     height: 16px;
     fill: var(--green-600);
-}
-
-.hero h1 {
-    margin-bottom: 1.25rem;
 }
 
 .hero-sub {
@@ -567,11 +563,9 @@ p {
 }
 
 .trust-image {
-    background: var(--cream);
-    border-radius: var(--radius-lg);
-    padding: 3rem;
-    text-align: center;
-    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .trust-image .qb-badge {
