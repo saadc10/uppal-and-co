@@ -163,6 +163,19 @@ p {
     width: 100%;
 }
 
+.nav-links a.nav-cta,
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta.active {
+    color: var(--cream) !important;
+}
+
+.nav-links a.nav-cta::after,
+.nav-links a.nav-cta:hover::after,
+.nav-links a.nav-cta.active::after {
+    display: none !important;
+    width: 0 !important;
+}
+
 .nav-cta {
     background: var(--green-800);
     color: var(--cream) !important;
