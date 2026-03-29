@@ -33,6 +33,18 @@
     --radius-lg: 12px;
     --transition: 0.3s ease;
 
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    --space-section: 5rem;
+    --max-width: 1140px;
+    --container-padding: 1.5rem;
+
     /* Type scale */
     --text-xs: 0.78rem;     /* labels, badges, footer small */
     --text-sm: 0.88rem;     /* captions, card meta, nav links */
@@ -96,6 +108,26 @@ p {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 1.5rem;
+}
+
+
+/* --- Skip to Content --- */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: 1rem;
+    background: var(--green-800);
+    color: var(--cream);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    z-index: 9999;
+    text-decoration: none;
+}
+
+.skip-to-content:focus {
+    left: 1rem;
 }
 
 
@@ -281,6 +313,19 @@ p {
     height: 16px;
     fill: var(--green-600);
 }
+
+/* Hero badges wrapper (Block 2 — ACSP) */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badges .hero-badge {
+    margin-bottom: 0;
+}
+
 
 .hero-sub {
     font-size: var(--text-md);
@@ -728,6 +773,73 @@ p {
 }
 
 
+/* --- Team Block (About page) --- */
+.team-block {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.team-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--green-800);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--green-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.team-since {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+}
+
+.team-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.credential-tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--green-100);
+    color: var(--green-700);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+}
+
+.team-qb-badge {
+    max-width: 160px;
+    margin-top: 0.75rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+}
+
+
 /* --- Contact Page --- */
 .contact-hero {
     padding: 8rem 0 3rem;
@@ -939,6 +1051,43 @@ p {
 }
 
 
+/* --- Utilities (replaces inline styles) --- */
+.qb-badge-hero {
+    max-width: 260px;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
+}
+
+.services-hero .hero-sub,
+.about-hero .hero-sub,
+.contact-hero .hero-sub {
+    max-width: 620px;
+}
+
+.service-cta-row {
+    margin-top: 1.5rem;
+}
+
+.map-wrapper-sm {
+    height: 200px;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+.container-narrow {
+    max-width: 760px;
+}
+
+.privacy-updated {
+    margin-top: 2rem;
+    color: var(--text-light);
+    font-size: var(--text-sm);
+}
+
+
 /* --- Reviews --- */
 .reviews-overall-stars {
     display: flex;
@@ -1109,7 +1258,7 @@ p {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
     /* Mobile nav: fullscreen overlay */
     .nav-links {
         display: none;
